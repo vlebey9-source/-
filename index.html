@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Daghestan Ridge — аренда домов в горах Дагестана</title>
+<title>Dagestan Ridge — аренда домов в горах Дагестана</title>
 <meta name="description" content="Четыре дома для аренды в горах Дагестана: панорамное остекление, террасы над склоном, виды на хребты. От 22 000 ₽ за сутки.">
-<meta property="og:title" content="Daghestan Ridge — дома для жизни на высоте">
+<meta property="og:title" content="Dagestan Ridge — дома для жизни на высоте">
 <meta property="og:description" content="Четыре дома для аренды в горах Дагестана: панорамное остекление, террасы над склоном, виды на хребты.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="house-1.jpg">
@@ -105,15 +105,37 @@ a{color:inherit;text-decoration:none;}
 .mobile-menu{
   position:fixed;inset:0;z-index:99;
   background:rgba(8,9,10,0.97);
-  display:none;
+  display:flex;
   flex-direction:column;
   align-items:flex-start;
   justify-content:center;
   gap:28px;
   padding:0 32px;
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+  transform:translateY(-16px);
+  transition:opacity .4s var(--ease), transform .4s var(--ease), visibility 0s linear .4s;
 }
-.mobile-menu.open{display:flex;}
-.mobile-menu a{font-family:'Anton',sans-serif;font-size:32px;text-transform:uppercase;color:var(--ink);}
+.mobile-menu.open{
+  opacity:1;
+  visibility:visible;
+  pointer-events:auto;
+  transform:translateY(0);
+  transition:opacity .4s var(--ease), transform .4s var(--ease), visibility 0s linear 0s;
+}
+.mobile-menu a{
+  font-family:'Anton',sans-serif;font-size:32px;text-transform:uppercase;color:var(--ink);
+  opacity:0;
+  transform:translateY(14px);
+  transition:opacity .4s var(--ease), transform .4s var(--ease);
+}
+.mobile-menu.open a{opacity:1;transform:translateY(0);}
+.mobile-menu.open a:nth-child(2){transition-delay:.06s;}
+.mobile-menu.open a:nth-child(3){transition-delay:.12s;}
+.mobile-menu.open a:nth-child(4){transition-delay:.18s;}
+.mobile-menu.open a:nth-child(5){transition-delay:.24s;}
+.mobile-menu.open a:nth-child(6){transition-delay:.3s;}
 .mobile-menu-close{position:absolute;top:24px;right:24px;background:none;border:none;color:var(--ink);font-size:28px;cursor:pointer;}
 
 /* ============ HERO ============ */
@@ -547,7 +569,7 @@ a{color:inherit;text-decoration:none;}
 
 <!-- ============ NAV ============ -->
 <nav class="nav">
-  <div class="nav-logo">Daghestan Ridge</div>
+  <div class="nav-logo">Dagestan Ridge</div>
   <div class="nav-links">
     <a href="#about">О проекте</a>
     <a href="#houses">Дома</a>
@@ -555,16 +577,16 @@ a{color:inherit;text-decoration:none;}
     <a href="#path">Бронирование</a>
     <a href="#contacts">Контакты</a>
   </div>
-  <button class="nav-mobile-toggle" onclick="document.getElementById('mobile-menu').classList.add('open')">Меню</button>
+  <button class="nav-mobile-toggle" id="nav-mobile-toggle" onclick="toggleMobileMenu()">Меню</button>
 </nav>
 
 <div class="mobile-menu" id="mobile-menu">
-  <button class="mobile-menu-close" onclick="document.getElementById('mobile-menu').classList.remove('open')">&times;</button>
-  <a href="#about" onclick="document.getElementById('mobile-menu').classList.remove('open')">О проекте</a>
-  <a href="#houses" onclick="document.getElementById('mobile-menu').classList.remove('open')">Дома</a>
-  <a href="#life" onclick="document.getElementById('mobile-menu').classList.remove('open')">Жизнь в горах</a>
-  <a href="#path" onclick="document.getElementById('mobile-menu').classList.remove('open')">Бронирование</a>
-  <a href="#contacts" onclick="document.getElementById('mobile-menu').classList.remove('open')">Контакты</a>
+  <button class="mobile-menu-close" onclick="closeMobileMenu()">&times;</button>
+  <a href="#about" onclick="closeMobileMenu()">О проекте</a>
+  <a href="#houses" onclick="closeMobileMenu()">Дома</a>
+  <a href="#life" onclick="closeMobileMenu()">Жизнь в горах</a>
+  <a href="#path" onclick="closeMobileMenu()">Бронирование</a>
+  <a href="#contacts" onclick="closeMobileMenu()">Контакты</a>
 </div>
 
 <!-- ============ HERO ============ -->
@@ -580,12 +602,12 @@ a{color:inherit;text-decoration:none;}
   </div>
 
   <div class="hero-title-block">
-    <h1 class="display hero-title">DAGHESTAN<br>RIDGE</h1>
+    <h1 class="display hero-title">DAGESTAN<br>RIDGE</h1>
   </div>
 
   <div class="hero-bottom">
     <div class="hero-bottom-left">
-      <div class="hero-welcome">Добро пожаловать<br>в Daghestan Ridge</div>
+      <div class="hero-welcome">Добро пожаловать<br>в Dagestan Ridge</div>
       <div class="hero-desc">Место, где горы Дагестана встречаются с современным комфортом. Это не просто аренда — это возможность создать свой собственный оазис над облаками.</div>
     </div>
     <div class="hero-bottom-right">
@@ -617,7 +639,7 @@ a{color:inherit;text-decoration:none;}
     <div style="height:24px"></div>
     <div class="about-grid">
       <div class="about-text reveal">
-        <p>Daghestan Ridge — горный посёлок, спроектированный для спокойной жизни и наслаждения видами. Здесь вы почувствуете себя дома, даже находясь в нескольких часах пути от ближайшего города.</p>
+        <p>Dagestan Ridge — горный посёлок, спроектированный для спокойной жизни и наслаждения видами. Здесь вы почувствуете себя дома, даже находясь в нескольких часах пути от ближайшего города.</p>
         <p>Каждый дом стоит на краю склона — с панорамным остеклением, открытыми террасами и видом на хребты, которые меняют цвет в течение дня. Минимум соседей, максимум тишины.</p>
       </div>
       <div class="vline"></div>
@@ -646,7 +668,7 @@ a{color:inherit;text-decoration:none;}
   <div class="wrap">
     <div class="section-head reveal">
       <h2 class="display">Приватность<br>и простор</h2>
-      <div class="section-head-desc">Четыре причины, по которым гости возвращаются в Daghestan Ridge снова</div>
+      <div class="section-head-desc">Четыре причины, по которым гости возвращаются в Dagestan Ridge снова</div>
     </div>
   </div>
   <div class="wrap" style="padding:0;max-width:1400px;">
@@ -865,7 +887,7 @@ a{color:inherit;text-decoration:none;}
     <div class="eyebrow amber reveal">ЖИЗНЬ В ГОРАХ</div>
     <h2 class="display reveal">Воздух, которого<br>не хватало в городе</h2>
     <p class="reveal reveal-delay-1">Здесь утро начинается с тумана, медленно стекающего по склону, а вечер — с тишины, которую не нарушает ничего, кроме ветра.</p>
-    <p class="reveal reveal-delay-2">Чистый горный воздух, отдалённость от шумных маршрутов и собственное крыльцо над облаками — то, ради чего гости возвращаются в Daghestan Ridge снова и снова.</p>
+    <p class="reveal reveal-delay-2">Чистый горный воздух, отдалённость от шумных маршрутов и собственное крыльцо над облаками — то, ради чего гости возвращаются в Dagestan Ridge снова и снова.</p>
   </div>
 </section>
 
@@ -982,7 +1004,7 @@ a{color:inherit;text-decoration:none;}
     <div class="cta-bottom reveal reveal-delay-2">
       <div class="cta-contacts">
         <div class="cta-phone">+7 (988) 200-13-46</div>
-        <div class="cta-email">hello@daghestan-ridge.ru · @daghestanridge</div>
+        <div class="cta-email">hello@dagestan-ridge.ru · @dagestanridge</div>
       </div>
       <div style="display:flex;align-items:center;gap:20px;">
         <div style="font-size:11px;color:var(--ink-faint);letter-spacing:.08em;text-transform:uppercase;max-width:140px;text-align:right;">Сканируйте,<br>чтобы написать в WhatsApp</div>
@@ -997,8 +1019,8 @@ a{color:inherit;text-decoration:none;}
 
 <footer class="footer">
   <div class="wrap footer-row">
-    <div class="footer-logo">Daghestan Ridge</div>
-    <div class="footer-copy">© 2026 Daghestan Ridge. Все права защищены.</div>
+    <div class="footer-logo">Dagestan Ridge</div>
+    <div class="footer-copy">© 2026 Dagestan Ridge. Все права защищены.</div>
   </div>
 </footer>
 
@@ -1065,6 +1087,36 @@ const io = new IntersectionObserver((entries)=>{
   });
 }, {threshold:0.15, rootMargin:'0px 0px -60px 0px'});
 revealEls.forEach(el=>io.observe(el));
+
+// ---------- mobile menu ----------
+const mobileMenu = document.getElementById('mobile-menu');
+
+function toggleMobileMenu(){
+  if(mobileMenu.classList.contains('open')){
+    closeMobileMenu();
+  } else {
+    openMobileMenu();
+  }
+}
+function openMobileMenu(){
+  mobileMenu.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  history.pushState({mobileMenu:true}, '');
+}
+function closeMobileMenu(){
+  if(!mobileMenu.classList.contains('open')) return;
+  mobileMenu.classList.remove('open');
+  document.body.style.overflow = '';
+  if(history.state && history.state.mobileMenu){
+    history.back();
+  }
+}
+window.addEventListener('popstate', ()=>{
+  if(mobileMenu.classList.contains('open')){
+    mobileMenu.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+});
 
 // ---------- booking modal ----------
 const overlay = document.getElementById('modal-overlay');
