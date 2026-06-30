@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daghestan Ridge — аренда домов в горах Дагестана</title>
+<meta name="description" content="Четыре дома для аренды в горах Дагестана: панорамное остекление, террасы над склоном, виды на хребты. От 22 000 ₽ за сутки.">
+<meta property="og:title" content="Daghestan Ridge — дома для жизни на высоте">
+<meta property="og:description" content="Четыре дома для аренды в горах Дагестана: панорамное остекление, террасы над склоном, виды на хребты.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="house-1.jpg">
+<meta name="theme-color" content="#0a0b0c">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0b0c;
+  --panel:#121315;
+  --panel-2:#16181a;
+  --line:rgba(236,233,228,0.12);
+  --line-strong:rgba(236,233,228,0.22);
+  --ink:#ece9e4;
+  --ink-dim:#9b9e9f;
+  --ink-faint:#74777a;
+  --amber:#e3bd87;
+  --amber-dim:rgba(227,189,135,0.35);
+  --radius-s:2px;
+  --ease:cubic-bezier(.16,.8,.24,1);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:'Inter',sans-serif;
+  font-weight:400;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%;}
+a{color:inherit;text-decoration:none;}
+.wrap{max-width:1400px;margin:0 auto;padding:0 48px;}
+
+.display{
+  font-family:'Anton',sans-serif;
+  font-weight:400;
+  text-transform:uppercase;
+  letter-spacing:0.01em;
+  line-height:0.92;
+}
+.eyebrow{
+  font-size:11px;
+  letter-spacing:0.22em;
+  text-transform:uppercase;
+  color:var(--ink-dim);
+  font-weight:500;
+}
+.eyebrow.amber{color:var(--amber);}
+
+.hairline{height:1px;background:var(--line);width:100%;border:none;}
+.vline{width:1px;background:var(--line);}
+
+/* reveal on scroll */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 1s var(--ease), transform 1s var(--ease);}
+.reveal.in{opacity:1;transform:translateY(0);}
+.reveal-delay-1{transition-delay:.12s;}
+.reveal-delay-2{transition-delay:.24s;}
+.reveal-delay-3{transition-delay:.36s;}
+
+@media (prefers-reduced-motion:reduce){
+  .reveal{transition:none;opacity:1;transform:none;}
+  html{scroll-behavior:auto;}
+}
+
+/* ============ NAV ============ */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:28px 48px;
+  mix-blend-mode:difference;
+}
+.nav-logo{font-family:'Anton',sans-serif;font-size:18px;letter-spacing:0.04em;text-transform:uppercase;}
+.nav-links{display:flex;gap:36px;}
+.nav-links a{font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink);opacity:0.85;transition:opacity .3s;}
+.nav-links a:hover{opacity:1;}
+.nav-mobile-toggle{display:none;background:none;border:none;color:var(--ink);font-size:11px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;padding:8px;}
+
+@media (max-width:860px){
+  .nav{padding:20px 24px;}
+  .nav-links{display:none;}
+  .nav-mobile-toggle{display:block;}
+}
+
+.mobile-menu{
+  position:fixed;inset:0;z-index:99;
+  background:rgba(8,9,10,0.97);
+  display:none;
+  flex-direction:column;
+  align-items:flex-start;
+  justify-content:center;
+  gap:28px;
+  padding:0 32px;
+}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{font-family:'Anton',sans-serif;font-size:32px;text-transform:uppercase;color:var(--ink);}
+.mobile-menu-close{position:absolute;top:24px;right:24px;background:none;border:none;color:var(--ink);font-size:28px;cursor:pointer;}
+
+/* ============ HERO ============ */
+.hero{
+  position:relative;
+  height:100vh;
+  min-height:680px;
+  width:100%;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+}
+.hero-video{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  object-fit:cover;
+  filter:brightness(0.62) saturate(0.92);
+}
+.hero-scrim{
+  position:absolute;inset:0;
+  background:linear-gradient(180deg, rgba(8,9,10,0.35) 0%, rgba(8,9,10,0.05) 28%, rgba(8,9,10,0.15) 55%, rgba(8,9,10,0.85) 100%);
+}
+.hero-top{
+  position:absolute;top:110px;left:0;right:0;
+  display:flex;justify-content:space-between;align-items:flex-start;
+  padding:0 48px;
+  z-index:2;
+}
+.hero-top-label{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(236,233,228,0.75);max-width:170px;line-height:1.6;}
+.hero-title-block{
+  position:relative;z-index:2;
+  padding:0 48px 0;
+  width:100%;
+}
+.hero-title{
+  font-size:clamp(44px, 12.5vw, 196px);
+  color:var(--ink);
+  text-shadow:0 4px 40px rgba(0,0,0,0.4);
+  word-break:break-word;
+}
+.hero-bottom{
+  position:relative;z-index:2;
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  gap:40px;
+  padding:28px 110px 48px 48px;
+  border-top:1px solid var(--line);
+  margin-top:28px;
+}
+.hero-bottom-left{max-width:380px;}
+.hero-welcome{font-size:22px;font-weight:300;line-height:1.4;color:var(--ink);margin-bottom:14px;}
+.hero-desc{font-size:13.5px;line-height:1.7;color:var(--ink-dim);font-weight:300;max-width:340px;}
+.hero-bottom-right{display:flex;flex-direction:column;align-items:flex-end;gap:18px;}
+.hero-meta{display:flex;gap:32px;}
+.hero-meta-item{text-align:right;}
+.hero-meta-val{font-size:13px;color:var(--ink);font-weight:500;}
+.hero-meta-label{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);margin-top:4px;}
+
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:15px 30px;
+  font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;
+  border:1px solid var(--ink);
+  border-radius:100px;
+  background:transparent;
+  color:var(--ink);
+  cursor:pointer;
+  transition:background .35s var(--ease), color .35s var(--ease), border-color .35s var(--ease);
+  white-space:nowrap;
+}
+.btn:hover{background:var(--ink);color:var(--bg);}
+.btn-solid{background:var(--ink);color:var(--bg);}
+.btn-solid:hover{background:var(--amber);border-color:var(--amber);color:#1a1410;}
+.btn-amber{border-color:var(--amber);color:var(--amber);}
+.btn-amber:hover{background:var(--amber);color:#1a1410;}
+
+@media (max-width:860px){
+  .hero-top{top:90px;padding:0 24px;}
+  .hero-top-label{display:none;}
+  .hero-title-block{padding:0 24px;}
+  .hero-bottom{flex-direction:column;align-items:flex-start;gap:24px;padding:24px 24px 90px;}
+  .hero-bottom-right{align-items:flex-start;width:100%;}
+  .hero-meta{gap:24px;}
+}
+
+/* ============ SECTION GENERIC ============ */
+.section{padding:140px 0;position:relative;}
+.section-tight{padding:90px 0;}
+@media (max-width:860px){
+  .section{padding:90px 0;}
+  .wrap{padding:0 24px;}
+}
+
+.section-head{
+  display:flex;justify-content:space-between;align-items:flex-end;
+  margin-bottom:64px;
+  gap:32px;
+}
+.section-head h2{font-size:clamp(32px,4.5vw,56px);}
+.section-head-desc{max-width:320px;font-size:13.5px;color:var(--ink-dim);line-height:1.7;font-weight:300;}
+@media (max-width:700px){
+  .section-head{flex-direction:column;align-items:flex-start;gap:16px;margin-bottom:44px;}
+  .section-head-desc{max-width:100%;}
+}
+
+/* ============ ABOUT ============ */
+.about-grid{
+  display:grid;
+  grid-template-columns:1.1fr 1px 0.9fr;
+  gap:0;
+}
+.about-text{padding-right:56px;}
+.about-text p{font-size:17px;line-height:1.85;color:var(--ink-dim);font-weight:300;margin-bottom:24px;}
+.about-text p:first-child{color:var(--ink);font-size:19px;}
+.about-stats{padding-left:56px;display:flex;flex-direction:column;gap:36px;}
+.stat-row{display:flex;align-items:baseline;gap:20px;border-bottom:1px solid var(--line);padding-bottom:28px;}
+.stat-num{font-family:'Anton',sans-serif;font-size:64px;line-height:1;color:var(--ink);white-space:nowrap;}
+.stat-num span{font-size:28px;color:var(--amber);}
+.stat-label{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);line-height:1.6;}
+
+@media (max-width:900px){
+  .about-grid{grid-template-columns:1fr;gap:48px;}
+  .about-text{padding-right:0;}
+  .about-grid .vline{display:none;}
+  .about-stats{padding-left:0;}
+  .stat-num{font-size:48px;}
+}
+
+/* ============ ADVANTAGES ============ */
+.adv-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  border-top:1px solid var(--line);
+  border-left:1px solid var(--line);
+}
+.adv-card{
+  border-right:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  padding:32px 28px 36px;
+  display:flex;flex-direction:column;
+  min-height:380px;
+}
+.adv-num{font-size:11px;color:var(--ink-faint);letter-spacing:.1em;margin-bottom:auto;padding-bottom:24px;}
+.adv-photo{
+  width:100%;aspect-ratio:1/1;
+  overflow:hidden;border-radius:100px;
+  margin-bottom:20px;
+}
+.adv-photo img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease);}
+.adv-card:hover .adv-photo img{transform:scale(1.08);}
+.adv-title{font-size:16px;font-weight:600;line-height:1.4;margin-bottom:8px;}
+.adv-desc{font-size:12.5px;color:var(--ink-dim);line-height:1.6;font-weight:300;}
+
+@media (max-width:900px){
+  .adv-grid{grid-template-columns:repeat(2,1fr);}
+  .adv-card{min-height:320px;padding:24px 20px 28px;}
+}
+@media (max-width:560px){
+  .adv-grid{grid-template-columns:1fr;}
+}
+
+/* ============ HOUSES ============ */
+.houses-list{display:flex;flex-direction:column;gap:1px;background:var(--line);}
+.house-card{
+  background:var(--bg);
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:0;
+}
+.house-card-photo{
+  position:relative;
+  overflow:hidden;
+  min-height:480px;
+}
+.house-card-photo img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease);}
+.house-card:hover .house-card-photo img{transform:scale(1.04);}
+.house-card-num{
+  position:absolute;top:28px;left:28px;
+  font-family:'Anton',sans-serif;font-size:15px;color:var(--ink);
+  background:rgba(8,9,10,0.55);padding:6px 12px;
+  backdrop-filter:blur(4px);
+}
+.house-card-body{
+  padding:44px 48px;
+  display:flex;flex-direction:column;
+}
+.house-card-name{font-family:'Anton',sans-serif;font-size:clamp(28px,3vw,42px);text-transform:uppercase;line-height:1;margin-bottom:6px;}
+.house-card-area{font-size:13px;color:var(--amber);font-weight:500;margin-bottom:20px;}
+.house-card-desc{font-size:14.5px;line-height:1.75;color:var(--ink-dim);font-weight:300;margin-bottom:28px;max-width:440px;}
+
+.house-card-rooms{
+  display:flex;flex-direction:column;gap:0;
+  border-top:1px solid var(--line);
+  margin-bottom:24px;
+}
+.house-room-row{
+  display:flex;justify-content:space-between;
+  padding:11px 0;
+  font-size:13px;
+  border-bottom:1px solid var(--line);
+}
+.house-room-row.total{font-weight:600;color:var(--ink);}
+.house-room-row span:first-child{color:var(--ink-dim);}
+.house-room-row span:last-child{color:var(--ink);font-weight:500;}
+
+.house-card-meta{
+  display:flex;gap:28px;flex-wrap:wrap;
+  margin-bottom:28px;
+  padding-bottom:28px;
+  border-bottom:1px solid var(--line);
+}
+.house-meta-item{display:flex;align-items:flex-start;gap:10px;}
+.house-meta-item svg{flex-shrink:0;margin-top:2px;opacity:0.7;}
+.house-meta-label{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:3px;}
+.house-meta-val{font-size:12.5px;color:var(--ink);font-weight:500;}
+
+.house-card-footer{
+  display:flex;justify-content:space-between;align-items:center;
+  margin-top:auto;
+}
+.house-card-price{font-size:20px;font-weight:600;color:var(--amber);}
+.house-card-price span{font-size:11px;color:var(--ink-faint);font-weight:400;text-transform:uppercase;display:block;margin-top:2px;}
+
+@media (max-width:900px){
+  .house-card{grid-template-columns:1fr;}
+  .house-card-photo{min-height:320px;}
+  .house-card-body{padding:32px 24px;}
+  .house-card-meta{gap:20px;}
+}
+
+/* ============ LIFE SECTION ============ */
+.life{
+  position:relative;
+  min-height:640px;
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+}
+.life-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.life-scrim{position:absolute;inset:0;background:linear-gradient(90deg, rgba(8,9,10,0.92) 0%, rgba(8,9,10,0.55) 45%, rgba(8,9,10,0.15) 100%);}
+.life-content{position:relative;z-index:2;max-width:520px;padding:80px 48px;}
+.life-content .eyebrow{margin-bottom:20px;}
+.life-content h2{font-size:clamp(30px,4vw,48px);margin-bottom:28px;}
+.life-content p{font-size:15px;line-height:1.85;color:var(--ink-dim);font-weight:300;margin-bottom:18px;max-width:440px;}
+
+@media (max-width:860px){
+  .life-content{padding:64px 24px;max-width:100%;}
+  .life-scrim{background:linear-gradient(180deg, rgba(8,9,10,0.5) 0%, rgba(8,9,10,0.88) 65%, rgba(8,9,10,0.96) 100%);}
+}
+
+/* ============ BOOKING PATH ============ */
+.path-wrap{position:relative;}
+.path-steps{display:flex;flex-direction:column;}
+.path-step{
+  display:grid;
+  grid-template-columns:120px 1fr 220px;
+  align-items:center;
+  gap:32px;
+  padding:40px 0;
+  border-top:1px solid var(--line);
+  position:relative;
+}
+.path-steps .path-step:last-child{border-bottom:1px solid var(--line);}
+.path-step-num{font-family:'Anton',sans-serif;font-size:15px;color:var(--ink-faint);}
+.path-step-title{font-family:'Anton',sans-serif;font-size:clamp(26px,3.2vw,40px);text-transform:uppercase;transition:color .4s;}
+.path-step:hover .path-step-title{color:var(--amber);}
+.path-step-desc{font-size:13px;color:var(--ink-dim);line-height:1.7;font-weight:300;}
+.path-step-photo{
+  width:140px;height:140px;border-radius:100px;overflow:hidden;
+  justify-self:end;
+  border:1px solid var(--line-strong);
+}
+.path-step-photo img{width:100%;height:100%;object-fit:cover;}
+
+@media (max-width:900px){
+  .path-step{grid-template-columns:1fr;gap:14px;padding:32px 0;}
+  .path-step-photo{display:none;}
+  .path-step-num{order:1;}
+  .path-step-title{order:2;}
+  .path-step-desc{order:3;}
+}
+
+/* ============ DOCS ============ */
+.docs-section{background:var(--panel);}
+.docs-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:1px;
+  background:var(--line);
+  border:1px solid var(--line);
+}
+.docs-card{background:var(--bg);padding:36px 32px;}
+.docs-card-title{font-size:15px;font-weight:600;margin-bottom:10px;line-height:1.4;}
+.docs-card-desc{font-size:12.5px;color:var(--ink-dim);line-height:1.65;font-weight:300;}
+
+@media (max-width:700px){
+  .docs-grid{grid-template-columns:1fr;}
+}
+
+/* ============ WORTH IT ============ */
+.worth-grid{
+  display:grid;
+  grid-template-columns:0.7fr 1fr;
+  gap:64px;
+  align-items:center;
+}
+.worth-photo{
+  width:100%;
+  aspect-ratio:1/1;
+  border-radius:100px;
+  overflow:hidden;
+}
+.worth-photo img{width:100%;height:100%;object-fit:cover;}
+.worth-list{display:flex;flex-direction:column;}
+.worth-item{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:24px 0;border-top:1px solid var(--line);
+}
+.worth-list .worth-item:last-child{border-bottom:1px solid var(--line);}
+.worth-item-name{font-size:15px;font-weight:500;}
+.worth-item-arrow{font-size:14px;color:var(--amber);}
+
+@media (max-width:860px){
+  .worth-grid{grid-template-columns:1fr;gap:40px;}
+  .worth-photo{max-width:280px;margin:0 auto;}
+}
+
+/* ============ CTA ============ */
+.cta-section{
+  position:relative;
+  min-height:560px;
+  display:flex;align-items:center;
+  overflow:hidden;
+}
+.cta-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.cta-scrim{position:absolute;inset:0;background:linear-gradient(180deg, rgba(8,9,10,0.55) 0%, rgba(8,9,10,0.78) 60%, rgba(8,9,10,0.95) 100%);}
+.cta-content{position:relative;z-index:2;width:100%;padding-right:90px;}
+.cta-title{font-size:clamp(36px,6vw,84px);max-width:920px;margin-bottom:48px;}
+.cta-bottom{
+  display:flex;justify-content:space-between;align-items:flex-end;
+  flex-wrap:wrap;gap:32px;
+  padding-top:32px;border-top:1px solid var(--line);
+}
+.cta-contacts{display:flex;flex-direction:column;gap:10px;}
+.cta-phone{font-size:22px;font-weight:500;}
+.cta-email{font-size:13px;color:var(--ink-dim);}
+.cta-social{display:flex;gap:14px;}
+.cta-qr{
+  width:84px;height:84px;background:#fff;border-radius:6px;padding:6px;
+  display:flex;align-items:center;justify-content:center;
+}
+
+@media (max-width:860px){
+  .cta-bottom{flex-direction:column;align-items:flex-start;}
+}
+
+/* ============ FOOTER ============ */
+.footer{padding:36px 0;border-top:1px solid var(--line);}
+.footer-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+.footer-logo{font-family:'Anton',sans-serif;font-size:14px;letter-spacing:.04em;text-transform:uppercase;}
+.footer-copy{font-size:11px;color:var(--ink-faint);}
+
+/* ============ STICKY WHATSAPP ============ */
+.sticky-wa{
+  position:fixed;bottom:28px;right:28px;z-index:90;
+  width:58px;height:58px;border-radius:50%;
+  background:var(--amber);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 30px rgba(0,0,0,0.4);
+  transition:transform .3s var(--ease);
+}
+.sticky-wa:hover{transform:scale(1.08);}
+.sticky-wa svg{width:26px;height:26px;}
+@media (max-width:860px){
+  .sticky-wa{width:50px;height:50px;bottom:18px;right:18px;}
+  .sticky-wa svg{width:22px;height:22px;}
+}
+
+/* ============ MODAL FORM ============ */
+.modal-overlay{
+  position:fixed;inset:0;z-index:200;
+  background:rgba(8,9,10,0.82);
+  backdrop-filter:blur(6px);
+  display:none;align-items:center;justify-content:center;
+  padding:24px;
+}
+.modal-overlay.open{display:flex;}
+.modal-box{
+  background:var(--panel);border:1px solid var(--line-strong);
+  width:100%;max-width:460px;padding:44px;position:relative;
+}
+.modal-close{
+  position:absolute;top:20px;right:20px;
+  background:none;border:none;color:var(--ink-dim);
+  font-size:22px;cursor:pointer;line-height:1;
+}
+.modal-box h3{font-size:22px;margin-bottom:8px;}
+.modal-box p{font-size:13px;color:var(--ink-dim);margin-bottom:28px;font-weight:300;}
+.form-field{margin-bottom:18px;}
+.form-field label{display:block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:8px;}
+.form-field input, .form-field select{
+  width:100%;background:transparent;border:none;border-bottom:1px solid var(--line-strong);
+  color:var(--ink);font-size:14px;padding:10px 0;font-family:'Inter',sans-serif;
+}
+.form-field select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%238d9092'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right center;}
+.form-field select option{background:#16181a;color:var(--ink);}
+.form-field input:focus, .form-field select:focus{outline:none;border-color:var(--amber);}
+.form-submit{width:100%;margin-top:8px;justify-content:center;}
+.form-success{display:none;text-align:center;padding:20px 0;}
+.form-success.show{display:block;}
+.form-success svg{margin:0 auto 16px;}
+
+/* lightbox */
+.lightbox{
+  position:fixed;inset:0;z-index:300;background:rgba(6,7,8,0.96);
+  display:none;align-items:center;justify-content:center;padding:40px;
+}
+.lightbox.open{display:flex;}
+.lightbox img{max-width:90vw;max-height:85vh;object-fit:contain;}
+.lightbox-close{position:absolute;top:28px;right:38px;color:var(--ink);font-size:28px;background:none;border:none;cursor:pointer;}
+.lightbox-nav{position:absolute;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--ink);font-size:32px;cursor:pointer;padding:12px;}
+.lightbox-prev{left:18px;}
+.lightbox-next{right:18px;}
+
+::selection{background:var(--amber);color:#1a1410;}
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav class="nav">
+  <div class="nav-logo">Daghestan Ridge</div>
+  <div class="nav-links">
+    <a href="#about">О проекте</a>
+    <a href="#houses">Дома</a>
+    <a href="#life">Жизнь в горах</a>
+    <a href="#path">Бронирование</a>
+    <a href="#contacts">Контакты</a>
+  </div>
+  <button class="nav-mobile-toggle" onclick="document.getElementById('mobile-menu').classList.add('open')">Меню</button>
+</nav>
+
+<div class="mobile-menu" id="mobile-menu">
+  <button class="mobile-menu-close" onclick="document.getElementById('mobile-menu').classList.remove('open')">&times;</button>
+  <a href="#about" onclick="document.getElementById('mobile-menu').classList.remove('open')">О проекте</a>
+  <a href="#houses" onclick="document.getElementById('mobile-menu').classList.remove('open')">Дома</a>
+  <a href="#life" onclick="document.getElementById('mobile-menu').classList.remove('open')">Жизнь в горах</a>
+  <a href="#path" onclick="document.getElementById('mobile-menu').classList.remove('open')">Бронирование</a>
+  <a href="#contacts" onclick="document.getElementById('mobile-menu').classList.remove('open')">Контакты</a>
+</div>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <video class="hero-video" autoplay muted loop playsinline poster="house-1.jpg">
+    <source src="hero_loop.mp4" type="video/mp4">
+  </video>
+  <div class="hero-scrim"></div>
+
+  <div class="hero-top">
+    <div class="hero-top-label">ДОМА ДЛЯ ЖИЗНИ<br>НА ВЫСОТЕ</div>
+    <div class="hero-top-label" style="text-align:right;max-width:200px;">ГОРНЫЙ ПОСЁЛОК<br>ДАГЕСТАН · 2026</div>
+  </div>
+
+  <div class="hero-title-block">
+    <h1 class="display hero-title">DAGHESTAN<br>RIDGE</h1>
+  </div>
+
+  <div class="hero-bottom">
+    <div class="hero-bottom-left">
+      <div class="hero-welcome">Добро пожаловать<br>в Daghestan Ridge</div>
+      <div class="hero-desc">Место, где горы Дагестана встречаются с современным комфортом. Это не просто аренда — это возможность создать свой собственный оазис над облаками.</div>
+    </div>
+    <div class="hero-bottom-right">
+      <div class="hero-meta">
+        <div class="hero-meta-item">
+          <div class="hero-meta-val">4 дома</div>
+          <div class="hero-meta-label">Открыты для брони</div>
+        </div>
+        <div class="hero-meta-item">
+          <div class="hero-meta-val">1 840 м</div>
+          <div class="hero-meta-label">Над уровнем моря</div>
+        </div>
+        <div class="hero-meta-item">
+          <div class="hero-meta-val">82 км</div>
+          <div class="hero-meta-label">От Махачкалы</div>
+        </div>
+      </div>
+      <button class="btn btn-solid" onclick="document.getElementById('houses').scrollIntoView({behavior:'smooth'})">Посмотреть дома</button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ ABOUT ============ -->
+<section class="section" id="about">
+  <div class="wrap">
+    <div class="eyebrow reveal">О ПРОЕКТЕ</div>
+    <div style="height:24px"></div>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>Daghestan Ridge — горный посёлок, спроектированный для спокойной жизни и наслаждения видами. Здесь вы почувствуете себя дома, даже находясь в нескольких часах пути от ближайшего города.</p>
+        <p>Каждый дом стоит на краю склона — с панорамным остеклением, открытыми террасами и видом на хребты, которые меняют цвет в течение дня. Минимум соседей, максимум тишины.</p>
+      </div>
+      <div class="vline"></div>
+      <div class="about-stats">
+        <div class="stat-row reveal">
+          <div class="stat-num">4<span>дома</span></div>
+          <div class="stat-label">В посёлке,<br>каждый со своим характером</div>
+        </div>
+        <div class="stat-row reveal reveal-delay-1">
+          <div class="stat-num">95<span>м²</span></div>
+          <div class="stat-label">Средняя площадь<br>одного дома</div>
+        </div>
+        <div class="stat-row reveal reveal-delay-2">
+          <div class="stat-num">3<span>сезона</span></div>
+          <div class="stat-label">Принимаем гостей<br>круглый год</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="hairline">
+
+<!-- ============ ADVANTAGES ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2 class="display">Приватность<br>и простор</h2>
+      <div class="section-head-desc">Четыре причины, по которым гости возвращаются в Daghestan Ridge снова</div>
+    </div>
+  </div>
+  <div class="wrap" style="padding:0;max-width:1400px;">
+    <div class="adv-grid reveal">
+      <div class="adv-card">
+        <div class="adv-num">01 / 04</div>
+        <div class="adv-photo"><img src="house-2.jpg" alt="Инфраструктура" loading="lazy"></div>
+        <div class="adv-title">Развитая инфраструктура</div>
+        <div class="adv-desc">Подъездная дорога, электричество, вода и связь — несмотря на удалённость от города.</div>
+      </div>
+      <div class="adv-card">
+        <div class="adv-num">02 / 04</div>
+        <div class="adv-photo"><img src="house-3.jpg" alt="Приватность" loading="lazy"></div>
+        <div class="adv-title">Приватность и простор</div>
+        <div class="adv-desc">Дома расположены так, что соседний участок не видно — только горы и небо.</div>
+      </div>
+      <div class="adv-card">
+        <div class="adv-num">03 / 04</div>
+        <div class="adv-photo"><img src="house-4.jpg" alt="Архитектура" loading="lazy"></div>
+        <div class="adv-title">Современная архитектура</div>
+        <div class="adv-desc">Тёмное дерево, камень и стекло — формы, которые не спорят с пейзажем, а продолжают его.</div>
+      </div>
+      <div class="adv-card">
+        <div class="adv-num">04 / 04</div>
+        <div class="adv-photo"><img src="house-1.jpg" alt="Виды" loading="lazy"></div>
+        <div class="adv-title">Захватывающие виды</div>
+        <div class="adv-desc">Панорамные окна от пола до потолка — горы становятся частью интерьера в любое время суток.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOUSES ============ -->
+<section class="section" id="houses">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2 class="display">Дома</h2>
+      <div class="section-head-desc">Четыре дома, каждый со своей планировкой, расположением на склоне и характером</div>
+    </div>
+
+    <div class="houses-list">
+
+      <article class="house-card reveal" data-house="0">
+        <div class="house-card-photo">
+          <div class="house-card-num">01</div>
+          <img src="house-1.jpg" alt="Дом «Панорама», вид на горы Дагестана в тумане" loading="lazy">
+        </div>
+        <div class="house-card-body">
+          <div class="house-card-name">Панорама</div>
+          <div class="house-card-area">78 м² · компактный формат</div>
+          <p class="house-card-desc">Компактный современный дом с панорамным остеклением, созданный для отдыха в горах. Максимально открывает вид на долины и облака, при этом остаётся уютным в любую погоду.</p>
+
+          <div class="house-card-rooms">
+            <div class="house-room-row"><span>Кухня-гостиная</span><span>34 м²</span></div>
+            <div class="house-room-row"><span>Спальня</span><span>18 м²</span></div>
+            <div class="house-room-row"><span>Санузел</span><span>6 м²</span></div>
+            <div class="house-room-row"><span>Прихожая и гардероб</span><span>8 м²</span></div>
+            <div class="house-room-row total"><span>Терраса</span><span>28 м²</span></div>
+          </div>
+
+          <div class="house-card-meta">
+            <div class="house-meta-item">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="8" cy="5" r="2.4"/><path d="M3 14c0-2.8 2.2-5 5-5s5 2.2 5 5"/></svg>
+              <div><div class="house-meta-label">Вместимость</div><div class="house-meta-val">2–4 гостя</div></div>
+            </div>
+            <div class="house-meta-item">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="2" y="3" width="12" height="11" rx="1"/><path d="M2 6.5h12M5.5 1.5v3M10.5 1.5v3"/></svg>
+              <div><div class="house-meta-label">Срок строительства</div><div class="house-meta-val">3–4 месяца</div></div>
+            </div>
+            <div class="house-meta-item">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M8 2L3 7v6a1 1 0 001 1h8a1 1 0 001-1V7L8 2z"/></svg>
+              <div><div class="house-meta-label">Материалы</div><div class="house-meta-val">Дерево, металл, стекло</div></div>
+            </div>
+          </div>
+
+          <div class="house-card-footer">
+            <div class="house-card-price">от 24 000 ₽<span>за сутки</span></div>
+            <button class="btn" onclick="openBooking('Панорама')">Подробнее</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="house-card reveal" data-house="1">
+        <div class="house-card-photo">
+          <div class="house-card-num">02</div>
+          <img src="house-2.jpg" alt="Дом «Утёс» на краю горного склона" loading="lazy">
+        </div>
+        <div class="house-card-body">
+          <div class="house-card-name">Утёс</div>
+          <div class="house-card-area">96 м² · консольная терраса</div>
+          <p class="house-card-desc">Дом расположен на краю горного склона. Панорамные окна и большая консольная терраса создают ощущение, будто дом парит над ущельем.</p>
+
+          <div class="house-card-rooms">
+            <div class="house-room-row"><span>Кухня-гостиная</span><span>42 м²</span></div>
+            <div class="house-room-row"><span>Главная спальня</span><span>17 м²</span></div>
+            <div class="house-room-row"><span>Гостевая спальня</span><span>12 м²</span></div>
+            <div class="house-room-row"><span>Санузел</span><span>7 м²</span></div>
+            <div class="house-room-row"><span>Техническое помещение</span><span>6 м²</span></div>
+            <div class="house-room-row total"><span>Терраса</span><span>35 м²</span></div>
+          </div>
+
+          <div class="house-card-meta">
+            <div class="house-meta-item">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="8" cy="5" r="2.4"/><path d="M3 14c0-2.8 2.2-5 5-5s5 2.2 5 5"/></svg>
+              <div><div class="house-meta-label">Вместимость</div><div class="house-meta-val">4–6 гостей</div></div>
+            </div>
+            <div class="house-meta-item">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="2" y="3" width="12" height="11" rx="1"/><path d="M2 6.5h12M5.5 1.5v3M10.5 1.5v3"/></svg>
+              <div><div class="house-meta-label">Срок строительства</div><div class="house-meta-val">4–5 месяцев</div></div>
+            </div>
+            <div class="house-meta-item">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M8 2L3 7v6a1 1 0 001 1h8a1 1 0 001-1V7L8 2z"/></svg>
+              <div><div class="house-meta-label">Материалы</div><div class="house-meta-val">Дерево, металл, стекло</div></div>
+            </div>
+          </div>
+
+          <div class="house-card-footer">
+            <div class="house-card-price">от 27 000 ₽<span>за сутки</span></div>
+            <button class="btn" onclick="openBooking('Утёс')">Подробнее</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="house-card reveal" data-house="2">
+        <div class="house-card-photo">
+          <div class="house-card-num">03</div>
+          <img src="house-3.jpg" alt="Дом «Камень» из натурального камня и дерева" loading="lazy">
+        </div>
+        <div class="house-card-body">
+          <div class="house-card-name">Камень</div>
+          <div class="house-card-area">112 м² · две спальни</div>
+          <p class="house-card-desc">Современный дом с натуральным камнем и деревом. Отлично подходит для круглогодичного проживания благодаря просторной общей зоне и двум спальням.</p>
+
+          <div class="house-card-rooms">
+            <div class="house-room-row"><span>Кухня-гостиная</span><span>48 м²</span></div>
+            <div class="house-room-row"><span>Главная спальня</span><span>19 м²</span></div>
+            <div class="house-room-row"><span>Вторая спальня</span><span>14 м²</span></div>
+            <div class="house-room-row"><span>Санузел</span><span>8 м²</span></div>
+            <div class="house-room-row"><span>Гардероб</span><span>6 м²</span></div>
+            <div class="house-room-row total"><span>Терраса</span><span>32 м²</span></div>
+          </div>
+
+          <div class="house-card-meta">
+            <div class="house-meta-item">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="8" cy="5" r="2.4"/><path d="M3 14c0-2.8 2.2-5 5-5s5 2.2 5 5"/></svg>
+              <div><div class="house-meta-label">Вместимость</div><div class="house-meta-val">4–6 гостей</div></div>
+            </div>
+            <div class="house-meta-item">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="2" y="3" width="12" height="11" rx="1"/><path d="M2 6.5h12M5.5 1.5v3M10.5 1.5v3"/></svg>
+              <div><div class="house-meta-label">Срок строительства</div><div class="house-meta-val">5–6 месяцев</div></div>
+            </div>
+            <div class="house-meta-item">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M8 2L3 7v6a1 1 0 001 1h8a1 1 0 001-1V7L8 2z"/></svg>
+              <div><div class="house-meta-label">Материалы</div><div class="house-meta-val">Камень, дерево, стекло</div></div>
+            </div>
+          </div>
+
+          <div class="house-card-footer">
+            <div class="house-card-price">от 29 000 ₽<span>за сутки</span></div>
+            <button class="btn" onclick="openBooking('Камень')">Подробнее</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="house-card reveal" data-house="3">
+        <div class="house-card-photo">
+          <div class="house-card-num">04</div>
+          <img src="house-4.jpg" alt="Дом «Вершина» с полностью стеклянным фасадом" loading="lazy">
+        </div>
+        <div class="house-card-body">
+          <div class="house-card-name">Вершина</div>
+          <div class="house-card-area">124 м² · флагманский дом</div>
+          <p class="house-card-desc">Флагманский дом с панорамным видом на горы. Просторная терраса по периметру и полностью стеклянный фасад позволяют наслаждаться природой в любое время года.</p>
+
+          <div class="house-card-rooms">
+            <div class="house-room-row"><span>Кухня-гостиная</span><span>55 м²</span></div>
+            <div class="house-room-row"><span>Главная спальня</span><span>20 м²</span></div>
+            <div class="house-room-row"><span>Кабинет / гостевая</span><span>15 м²</span></div>
+            <div class="house-room-row"><span>Санузел</span><span>9 м²</span></div>
+            <div class="house-room-row"><span>Постирочная</span><span>5 м²</span></div>
+            <div class="house-room-row"><span>Гардероб</span><span>8 м²</span></div>
+            <div class="house-room-row total"><span>Терраса</span><span>45 м²</span></div>
+          </div>
+
+          <div class="house-card-meta">
+            <div class="house-meta-item">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="8" cy="5" r="2.4"/><path d="M3 14c0-2.8 2.2-5 5-5s5 2.2 5 5"/></svg>
+              <div><div class="house-meta-label">Вместимость</div><div class="house-meta-val">6–8 гостей</div></div>
+            </div>
+            <div class="house-meta-item">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="2" y="3" width="12" height="11" rx="1"/><path d="M2 6.5h12M5.5 1.5v3M10.5 1.5v3"/></svg>
+              <div><div class="house-meta-label">Срок строительства</div><div class="house-meta-val">6–7 месяцев</div></div>
+            </div>
+            <div class="house-meta-item">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M8 2L3 7v6a1 1 0 001 1h8a1 1 0 001-1V7L8 2z"/></svg>
+              <div><div class="house-meta-label">Материалы</div><div class="house-meta-val">Дерево, металл, стекло, камень</div></div>
+            </div>
+          </div>
+
+          <div class="house-card-footer">
+            <div class="house-card-price">от 34 000 ₽<span>за сутки</span></div>
+            <button class="btn" onclick="openBooking('Вершина')">Подробнее</button>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ LIFE IN MOUNTAINS ============ -->
+<section class="life" id="life">
+  <img class="life-bg" src="house-3.jpg" alt="Жизнь в горах">
+  <div class="life-scrim"></div>
+  <div class="life-content">
+    <div class="eyebrow amber reveal">ЖИЗНЬ В ГОРАХ</div>
+    <h2 class="display reveal">Воздух, которого<br>не хватало в городе</h2>
+    <p class="reveal reveal-delay-1">Здесь утро начинается с тумана, медленно стекающего по склону, а вечер — с тишины, которую не нарушает ничего, кроме ветра.</p>
+    <p class="reveal reveal-delay-2">Чистый горный воздух, отдалённость от шумных маршрутов и собственное крыльцо над облаками — то, ради чего гости возвращаются в Daghestan Ridge снова и снова.</p>
+  </div>
+</section>
+
+<!-- ============ BOOKING PATH ============ -->
+<section class="section" id="path">
+  <div class="wrap">
+    <div class="eyebrow reveal">КАК ЗАБРОНИРОВАТЬ</div>
+    <div style="height:16px"></div>
+    <h2 class="display reveal" style="font-size:clamp(32px,4.5vw,56px);margin-bottom:56px;">Ваш путь<br>к дому в горах</h2>
+
+    <div class="path-steps">
+      <div class="path-step reveal">
+        <div class="path-step-num">01</div>
+        <div>
+          <div class="path-step-title">Выбор дома</div>
+          <div class="path-step-desc" style="margin-top:8px;max-width:420px;">Смотрите фото, метраж и расположение каждого дома и выбираете тот, что откликается.</div>
+        </div>
+        <div class="path-step-photo"><img src="house-1.jpg" alt="Дом Панорама в горах"></div>
+      </div>
+      <div class="path-step reveal">
+        <div class="path-step-num">02</div>
+        <div>
+          <div class="path-step-title">Заявка</div>
+          <div class="path-step-desc" style="margin-top:8px;max-width:420px;">Оставляете имя, телефон и желаемые даты — мы свяжемся в течение часа.</div>
+        </div>
+        <div class="path-step-photo"><img src="house-2.jpg" alt="Дом Утёс на склоне"></div>
+      </div>
+      <div class="path-step reveal">
+        <div class="path-step-num">03</div>
+        <div>
+          <div class="path-step-title">Подтверждение</div>
+          <div class="path-step-desc" style="margin-top:8px;max-width:420px;">Согласовываем даты, отправляем договор аренды и реквизиты для брони.</div>
+        </div>
+        <div class="path-step-photo"><img src="house-3.jpg" alt="Дом Камень у скалы"></div>
+      </div>
+      <div class="path-step reveal">
+        <div class="path-step-num">04</div>
+        <div>
+          <div class="path-step-title">Заезд</div>
+          <div class="path-step-desc" style="margin-top:8px;max-width:420px;">Встречаем на месте, передаём ключи и рассказываем всё о доме и окрестностях.</div>
+        </div>
+        <div class="path-step-photo"><img src="house-4.jpg" alt="Дом Вершина в посёлке"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DOCS ============ -->
+<section class="section docs-section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2 class="display">Документы<br>и условия</h2>
+      <div class="section-head-desc">Прозрачные условия аренды — никаких скрытых платежей и устных договорённостей</div>
+    </div>
+
+    <div class="docs-grid reveal">
+      <div class="docs-card">
+        <div class="docs-card-title">Договор аренды</div>
+        <div class="docs-card-desc">Заключаем официальный договор краткосрочной аренды перед заездом — с точными датами, стоимостью и условиями.</div>
+      </div>
+      <div class="docs-card">
+        <div class="docs-card-title">Правила проживания</div>
+        <div class="docs-card-desc">Понятный и короткий список правил: тишина после 23:00, бережное отношение к дому и территории.</div>
+      </div>
+      <div class="docs-card">
+        <div class="docs-card-title">Что включено</div>
+        <div class="docs-card-desc">Электричество, вода, отопление, Wi-Fi, постельное бельё и уборка перед заездом — без доплат.</div>
+      </div>
+      <div class="docs-card">
+        <div class="docs-card-title">Отмена и перенос</div>
+        <div class="docs-card-desc">Бесплатная отмена за 7 дней до заезда, перенос дат по согласованию в любое время.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WORTH IT ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="eyebrow reveal">ПОЧЕМУ ЭТО ТОГО СТОИТ</div>
+    <div style="height:24px"></div>
+    <div class="worth-grid">
+      <div class="worth-photo reveal"><img src="house-4.jpg" alt="Дом Вершина в сумерках"></div>
+      <div class="worth-list reveal reveal-delay-1">
+        <div class="worth-item">
+          <div class="worth-item-name">Полное уединение — соседей не видно и не слышно</div>
+          <div class="worth-item-arrow">→</div>
+        </div>
+        <div class="worth-item">
+          <div class="worth-item-name">Виды на хребты Дагестана из каждой комнаты</div>
+          <div class="worth-item-arrow">→</div>
+        </div>
+        <div class="worth-item">
+          <div class="worth-item-name">Развитая инфраструктура посёлка без городской суеты</div>
+          <div class="worth-item-arrow">→</div>
+        </div>
+        <div class="worth-item">
+          <div class="worth-item-name">40 минут до ближайших природных достопримечательностей</div>
+          <div class="worth-item-arrow">→</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="cta-section" id="contacts">
+  <img class="cta-bg" src="house-1.jpg" alt="Дом Панорама на закате в горах Дагестана">
+  <div class="cta-scrim"></div>
+  <div class="wrap cta-content">
+    <h2 class="display cta-title reveal">Готовы выбрать<br>свой дом в горах?</h2>
+    <button class="btn btn-amber reveal reveal-delay-1" onclick="openBooking('')" style="margin-bottom:56px;">Оставить заявку</button>
+
+    <div class="cta-bottom reveal reveal-delay-2">
+      <div class="cta-contacts">
+        <div class="cta-phone">+7 (988) 200-13-46</div>
+        <div class="cta-email">hello@daghestan-ridge.ru · @daghestanridge</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:20px;">
+        <div style="font-size:11px;color:var(--ink-faint);letter-spacing:.08em;text-transform:uppercase;max-width:140px;text-align:right;">Сканируйте,<br>чтобы написать в WhatsApp</div>
+        <div class="cta-qr" id="qr-holder"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-row">
+    <div class="footer-logo">Daghestan Ridge</div>
+    <div class="footer-copy">© 2026 Daghestan Ridge. Все права защищены.</div>
+  </div>
+</footer>
+
+<!-- ============ STICKY WHATSAPP ============ -->
+<a class="sticky-wa" href="https://wa.me/79882001346" target="_blank" aria-label="Написать в WhatsApp">
+  <svg viewBox="0 0 24 24" fill="#1a1410"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.86 9.86 0 004.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.51 2 12.04 2zm0 18.13c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 01-1.26-4.36c0-4.52 3.68-8.2 8.21-8.2 4.53 0 8.21 3.68 8.21 8.2 0 4.53-3.68 8.22-8.17 8.22zm4.51-6.16c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.13-.17.25-.64.81-.78.97-.14.17-.29.18-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.48-1.39-1.73-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.24-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43-.14-.01-.31-.01-.48-.01-.17 0-.43.06-.66.31-.23.25-.86.84-.86 2.05 0 1.21.88 2.38 1 2.54.12.17 1.74 2.65 4.2 3.72.59.25 1.05.4 1.41.52.59.19 1.13.16 1.55.1.47-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.14-1.18-.06-.11-.23-.17-.48-.29z"/></svg>
+</a>
+
+<!-- ============ BOOKING MODAL ============ -->
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeBooking()">&times;</button>
+    <div id="form-stage">
+      <h3>Оставить заявку</h3>
+      <p>Ответим в течение часа и подберём удобные даты</p>
+      <form id="booking-form" onsubmit="submitBooking(event)">
+        <div class="form-field">
+          <label for="f-name">Имя</label>
+          <input type="text" id="f-name" required>
+        </div>
+        <div class="form-field">
+          <label for="f-phone">Телефон</label>
+          <input type="tel" id="f-phone" required placeholder="+7 (___) ___-__-__">
+        </div>
+        <div class="form-field">
+          <label for="f-dates">Желаемые даты</label>
+          <input type="text" id="f-dates" placeholder="например, 12–16 августа" required>
+        </div>
+        <div class="form-field">
+          <label for="f-house">Дом</label>
+          <select id="f-house">
+            <option value="">Не определился(ась)</option>
+            <option>Панорама</option>
+            <option>Утёс</option>
+            <option>Камень</option>
+            <option>Вершина</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-solid form-submit">Отправить заявку</button>
+      </form>
+    </div>
+    <div class="form-success" id="form-success">
+      <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="23" stroke="#e3bd87" stroke-width="1.5"/><path d="M14 24l7 7 13-14" stroke="#e3bd87" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <h3 style="text-align:center;">Заявка отправлена</h3>
+      <p style="text-align:center;">Свяжемся с вами в ближайшее время</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============ LIGHTBOX ============ -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+  <button class="lightbox-nav lightbox-prev" onclick="navLightbox(-1)">&#8249;</button>
+  <img id="lightbox-img" src="" alt="">
+  <button class="lightbox-nav lightbox-next" onclick="navLightbox(1)">&#8250;</button>
+</div>
+
+<script>
+// ---------- scroll reveal ----------
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+  });
+}, {threshold:0.15, rootMargin:'0px 0px -60px 0px'});
+revealEls.forEach(el=>io.observe(el));
+
+// ---------- booking modal ----------
+const overlay = document.getElementById('modal-overlay');
+const formStage = document.getElementById('form-stage');
+const successStage = document.getElementById('form-success');
+const houseSelect = document.getElementById('f-house');
+
+function openBooking(houseName){
+  overlay.classList.add('open');
+  formStage.style.display = 'block';
+  successStage.classList.remove('show');
+  document.getElementById('booking-form').reset();
+  if(houseName){ houseSelect.value = houseName; }
+  document.body.style.overflow = 'hidden';
+}
+function closeBooking(){
+  overlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+overlay.addEventListener('click', (e)=>{ if(e.target === overlay) closeBooking(); });
+
+function submitBooking(e){
+  e.preventDefault();
+  formStage.style.display = 'none';
+  successStage.classList.add('show');
+  setTimeout(closeBooking, 2600);
+}
+
+// ---------- lightbox gallery ----------
+const galleryImages = ['house-1.jpg','house-2.jpg','house-3.jpg','house-4.jpg'];
+let lightboxIndex = 0;
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+
+document.querySelectorAll('.house-card-photo img, .adv-photo img').forEach(img=>{
+  img.style.cursor = 'zoom-in';
+  img.addEventListener('click', ()=>{
+    const src = img.getAttribute('src');
+    const idx = galleryImages.indexOf(src);
+    lightboxIndex = idx >= 0 ? idx : 0;
+    showLightbox();
+  });
+});
+function showLightbox(){
+  lightboxImg.src = galleryImages[lightboxIndex];
+  lightbox.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox(){
+  lightbox.classList.remove('open');
+  document.body.style.overflow = '';
+}
+function navLightbox(dir){
+  lightboxIndex = (lightboxIndex + dir + galleryImages.length) % galleryImages.length;
+  lightboxImg.src = galleryImages[lightboxIndex];
+}
+lightbox.addEventListener('click', (e)=>{ if(e.target === lightbox) closeLightbox(); });
+document.addEventListener('keydown', (e)=>{
+  if(!lightbox.classList.contains('open')) return;
+  if(e.key === 'Escape') closeLightbox();
+  if(e.key === 'ArrowLeft') navLightbox(-1);
+  if(e.key === 'ArrowRight') navLightbox(1);
+});
+
+// ---------- simple QR placeholder (SVG) ----------
+document.getElementById('qr-holder').innerHTML = `
+<svg width="64" height="64" viewBox="0 0 64 64" fill="#1a1410">
+<rect x="0" y="0" width="64" height="64" fill="#fff"/>
+<rect x="4" y="4" width="16" height="16" fill="#1a1410"/>
+<rect x="8" y="8" width="8" height="8" fill="#fff"/>
+<rect x="44" y="4" width="16" height="16" fill="#1a1410"/>
+<rect x="48" y="8" width="8" height="8" fill="#fff"/>
+<rect x="4" y="44" width="16" height="16" fill="#1a1410"/>
+<rect x="8" y="48" width="8" height="8" fill="#fff"/>
+<rect x="24" y="4" width="4" height="4"/><rect x="32" y="4" width="4" height="4"/>
+<rect x="24" y="12" width="4" height="4"/><rect x="36" y="12" width="4" height="4"/>
+<rect x="24" y="24" width="4" height="4"/><rect x="32" y="24" width="4" height="4"/><rect x="44" y="24" width="4" height="4"/><rect x="52" y="24" width="4" height="4"/>
+<rect x="4" y="28" width="4" height="4"/><rect x="12" y="28" width="4" height="4"/><rect x="24" y="28" width="4" height="4"/><rect x="36" y="28" width="4" height="4"/>
+<rect x="44" y="32" width="4" height="4"/><rect x="52" y="32" width="4" height="4"/><rect x="24" y="36" width="4" height="4"/><rect x="32" y="36" width="4" height="4"/>
+<rect x="44" y="44" width="4" height="4"/><rect x="36" y="48" width="4" height="4"/><rect x="44" y="52" width="4" height="4"/><rect x="52" y="52" width="4" height="4"/>
+<rect x="24" y="44" width="4" height="4"/><rect x="32" y="52" width="4" height="4"/>
+</svg>`;
+</script>
+
+</body>
+</html>
