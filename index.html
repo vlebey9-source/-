@@ -582,11 +582,11 @@ a{color:inherit;text-decoration:none;}
 
 <div class="mobile-menu" id="mobile-menu">
   <button class="mobile-menu-close" onclick="closeMobileMenu()">&times;</button>
-  <a href="#about" onclick="closeMobileMenu()">О проекте</a>
-  <a href="#houses" onclick="closeMobileMenu()">Дома</a>
-  <a href="#life" onclick="closeMobileMenu()">Жизнь в горах</a>
-  <a href="#path" onclick="closeMobileMenu()">Бронирование</a>
-  <a href="#contacts" onclick="closeMobileMenu()">Контакты</a>
+  <a href="#about" class="mobile-menu-link" data-target="#about">О проекте</a>
+  <a href="#houses" class="mobile-menu-link" data-target="#houses">Дома</a>
+  <a href="#life" class="mobile-menu-link" data-target="#life">Жизнь в горах</a>
+  <a href="#path" class="mobile-menu-link" data-target="#path">Бронирование</a>
+  <a href="#contacts" class="mobile-menu-link" data-target="#contacts">Контакты</a>
 </div>
 
 <!-- ============ HERO ============ -->
@@ -1107,6 +1107,7 @@ if(heroVideo){
 
 // ---------- mobile menu ----------
 const mobileMenu = document.getElementById('mobile-menu');
+let menuClosingViaBack = false;
 
 function toggleMobileMenu(){
   if(mobileMenu.classList.contains('open')){
@@ -1124,15 +1125,29 @@ function closeMobileMenu(){
   if(!mobileMenu.classList.contains('open')) return;
   mobileMenu.classList.remove('open');
   document.body.style.overflow = '';
-  if(history.state && history.state.mobileMenu){
+  if(!menuClosingViaBack && history.state && history.state.mobileMenu){
     history.back();
   }
+  menuClosingViaBack = false;
 }
 window.addEventListener('popstate', ()=>{
   if(mobileMenu.classList.contains('open')){
-    mobileMenu.classList.remove('open');
-    document.body.style.overflow = '';
+    menuClosingViaBack = true;
+    closeMobileMenu();
   }
+});
+
+// menu links: scroll to section after the menu has closed (so it doesn't fight with history.back())
+document.querySelectorAll('.mobile-menu-link').forEach(link=>{
+  link.addEventListener('click', (e)=>{
+    e.preventDefault();
+    const target = link.getAttribute('data-target');
+    closeMobileMenu();
+    setTimeout(()=>{
+      const el = document.querySelector(target);
+      if(el) el.scrollIntoView({behavior:'smooth'});
+    }, 420);
+  });
 });
 
 // ---------- booking modal ----------
